@@ -14,7 +14,6 @@ body {
     margin: 0;
     text-align: center;
 }
-
 label {
     background: center 0.5em no-repeat #563429;
     background-size: 4em;
@@ -46,7 +45,25 @@ label {
     label[for=opcao-bebidas] {
         right: 0;
     }
-
 .menu {
     margin-bottom: 100px;
+}
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+.container-menus {
+    transform: translateX(0);
+    transition: transform 300ms ease;
+    width: 200%;
+}
+
+.container-menus .menu {
+    float: left;
+    width: 50%;
+}
+
+#opcao-bebidas:checked ~ .container-menus {
+    transform: translateX(-50%);
 }
