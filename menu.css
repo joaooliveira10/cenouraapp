@@ -1,21 +1,26 @@
+/* funcionamento */
 #opcao-bolos:checked ~ #menu-bebidas,
 #opcao-bebidas:checked ~ #menu-bolos {
     display: none;
 }
+
 input[type=radio] {
     display: none;
 }
 .menu {
     width: 100%;
 }
+
+/* decoracao */
 body {
     background: #3D1A11;
     font-family: sans-serif;
     margin: 0;
     text-align: center;
 }
+
 label {
-    background: center 0.5em no-repeat #563429;
+    background: center top 0.5em no-repeat #563429;
     background-size: 4em;
     color: white;
     display: block;
@@ -32,7 +37,9 @@ label {
     :checked + label {
         background-color: #E4876D;
     }
-    label {
+
+/* posicionamento */
+label {
     width: 50%;
 
     position: fixed;
@@ -45,17 +52,22 @@ label {
     label[for=opcao-bebidas] {
         right: 0;
     }
+
 .menu {
     margin-bottom: 100px;
 }
+
+/* animado */
 html,
 body {
     overflow-x: hidden;
     width: 100%;
 }
 .container-menus {
-    transform: translateX(0);
-    transition: transform 300ms ease;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-transition: transform 300ms ease;
+            transition: -webkit-transform 300ms ease;
     width: 200%;
 }
 
@@ -65,5 +77,13 @@ body {
 }
 
 #opcao-bebidas:checked ~ .container-menus {
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+
+/* hack android velho */
+body { -webkit-animation: bugfix infinite 1s; }
+@-webkit-keyframes bugfix {
+  from { padding: 0; }
+  to { padding: 0; }
 }
